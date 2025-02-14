@@ -1,21 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+ content: [
+		"./*.{vue,js,ts,css}",
+		"./assets/**/*.{vue,js,css}",
+		"./components/**/*.{vue,js}",
+		"./layOuts/**/*.vue",
+		"./pages/**/*.vue",
+		"./plugins/**/*.{js,ts}",
+		"./nuxt.config.{js,ts}",
+	],
   theme: {
     extend: {
       colors: {
-        background: {
+        colorBackground: {
           light: '#fafafa', // Surface in light mode
           dark: '#333',     // Background in dark mode
         },
-        surface: {
+        colorSurface: {
           light: '#ffffff', // A pure white for light surface
           dark: '#1f1f1f',   // Surface in dark mode
         },
-        onBackground: {
+        colorOnBackground: {
           light: '#333', // Text color on light background (match dark mode surface)
           dark: '#B4B4B4',   // Text color on dark background
         },
