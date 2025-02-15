@@ -14,11 +14,11 @@ module.exports = {
       colors: {
         colorBackground: {
           light: '#fafafa', // Surface in light mode
-          dark: '#333',     // Background in dark mode
+          dark: '#1f1f1f',   // Surface in dark mode
         },
         colorSurface: {
           light: '#ffffff', // A pure white for light surface
-          dark: '#1f1f1f',   // Surface in dark mode
+          dark: '#333',     // Background in dark mode
         },
         colorOnBackground: {
           light: '#333', // Text color on light background (match dark mode surface)
