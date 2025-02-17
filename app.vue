@@ -7,5 +7,8 @@
     <template>
       <NuxtPage />
     </template>
+    <template #footer>
+      <Footer />
+    </template>
   </Scafford>
 </template>

@@ -6,18 +6,18 @@ import { ref, onMounted, onUnmounted } from "vue";
   <div ref="content" class="w-full h-dvh select-none flex flex-col">
     <!-- TopBar Wrpper-->
     <header
-      class="fixed z-50 top-0 left-0 right-0 flex w-full h-14 bg-colorBackground-light dark:bg-colorBackground-dark border-b border-b-colorOutline-light dark:border-b-colorOutline-dark items-center"
+      class="fixed z-50 top-0 left-0 right-0 flex w-full h-14 items-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
     >
       <slot name="topbar"></slot>
     </header>
 
-    <main
-      class="w-full h-full xl:max-h-[1080px] max-w-6xl mx-auto overflow-y-auto *:pt-14"
-    >
+    <main class="w-full h-full max-w-6xl mx-auto overflow-y-auto *:pt-14">
       <slot></slot>
     </main>
 
-    <footer>
+    <footer
+      class="flex items-center border-t bg-colorBackground-light dark:bg-colorBackground-dark border-t-colorOutline-light dark:border-t-colorOutline-dark"
+    >
       <slot name="footer"></slot>
     </footer>
   </div>

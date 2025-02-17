@@ -6,7 +6,9 @@ const coureses = ref([
 ]);
 </script>
 <template>
-  <div class="flex flex-col-reverse md:flex-row md:h-full w-full">
+  <div
+    class="flex flex-col-reverse md:flex-row md:h-full w-full max-h-[1080px]"
+  >
     <!--Left hero text-->
     <div
       id="left"
@@ -17,7 +19,7 @@ const coureses = ref([
       >
         <div class="space-y-1">
           <h3 class="text-3xl md:text-5xl">Study Buddy</h3>
-          <p class="text-base md:text-xl mt-0.5">
+          <p class="text-base mt-0.5">
             Empowering ICU students to achieve academic excellence. Your journey
             to success starts here
           </p>

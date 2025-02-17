@@ -1,0 +1,62 @@
+<script setup>
+import { ref, watch } from "vue";
+
+const props = defineProps({
+  placeholder: {
+    type: String,
+    default: "Enter Value", // Default placeholder
+  },
+  inputmode: {
+    type: String,
+    default: "Enter Value", // Default placeholder
+  },
+  modelValue: String,
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+const errorMessage = ref();
+
+const formatInput = (event) => {
+  const inputValue = event.target.value;
+  const formattedValue = inputValue.replace(/[^0-9]/g, ""); // Only allow numbers
+
+  if (formattedValue !== inputValue) {
+    // Check if formatting changed anything
+    event.target.value = formattedValue; // Update the input field
+  }
+
+  emit("update:modelValue", formattedValue);
+  validateInput(formattedValue);
+};
+
+const validateInput = (value) => {
+  if (value === "" || /^[0-9]+$/.test(value)) {
+    // Check if empty or only numbers
+    errorMessage.value = null;
+  } else {
+    errorMessage.value = "Please enter only numeric values.";
+  }
+};
+
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    const formattedValue = newValue?.replace(/[^0-9]/g, "");
+    if (formattedValue !== newValue) {
+      emit("update:modelValue", formattedValue);
+    }
+    validateInput(formattedValue);
+  }
+);
+</script>
+<template>
+  <input
+    type="text"
+    :placeholder="placeholder"
+    inputmode="numeric"
+    @input="formatInput"
+    class="md:w-80 bg-transparent px-4 py-2 transition-all duration-300 rounded border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
+  />
+  <p v-if="errorMessage" class="text-red-500">{{ errorMessage }}</p>
+</template>

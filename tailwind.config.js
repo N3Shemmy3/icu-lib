@@ -12,6 +12,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        colorPrimary: {
+          light: "#fafafa", // Surface in light mode
+          dark: "#1f1f1f", // Surface in dark mode
+        },
+        colorOnPrimary: {
+          light: "#333", // Text color on light background (match dark mode surface)
+          dark: "#B4B4B4", // Text color on dark background
+        },
         colorBackground: {
           light: "#fafafa", // Surface in light mode
           dark: "#1f1f1f", // Surface in dark mode
