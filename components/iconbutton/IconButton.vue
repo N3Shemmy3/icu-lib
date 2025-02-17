@@ -13,9 +13,9 @@ const props = defineProps({
 
 <template>
   <button
-    class="inline-flex items-center p-2 justify-center whitespace-nowrap shrink-0 rounded-md duration-300 transition-all hover:opacity-30 hover:bg-colorPrimary-light dark:hover:bg-colorPrimary-dark"
+    class="inline-flex items-center p-2 justify-center whitespace-nowrap shrink-0 rounded-md duration-300 transition-all hover:bg-colorSurface-light dark:hover:bg-colorSurface-dark"
     @click=""
   >
-    <Icon :name="props.icon" :aria-label="props.label" size="16" />
+    <Icon :name="props.icon" :aria-label="props.label" class="size-4" />
   </button>
 </template>
