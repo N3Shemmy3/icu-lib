@@ -3,23 +3,31 @@ import { ref, onMounted, onUnmounted } from "vue";
 </script>
 
 <template>
-  <div ref="content" class="w-full h-dvh select-none flex flex-col">
-    <!-- TopBar Wrpper-->
-    <header
-      class="fixed z-50 top-0 left-0 right-0 flex w-full h-14 items-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
+  <div ref="content" class="w-full h-dvh select-none flex">
+    <div
+      class="fixed w-64 border-e border-e-colorOutline-light dark:border-e-colorOutline-dark h-full flex"
     >
-      <slot name="topbar"></slot>
-    </header>
+      <slot name="sidebar"></slot>
+    </div>
 
-    <main class="w-full h-full max-w-6xl mx-auto overflow-y-auto *:pt-14">
-      <slot></slot>
-    </main>
+    <div class="fixed left-[16rem] h-full flex flex-grow-0 flex-col">
+      <!-- TopBar Wrpper-->
+      <header
+        class="z-50 flex w-full h-14 items-center justify-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
+      >
+        <slot name="topbar"></slot>
+      </header>
 
-    <footer
-      class="flex items-center border-t bg-colorBackground-light dark:bg-colorBackground-dark border-t-colorOutline-light dark:border-t-colorOutline-dark"
-    >
-      <slot name="footer"></slot>
-    </footer>
+      <main class="w-full h-full max-w-6xl mx-auto overflow-y-auto *:pt-14">
+        <slot></slot>
+      </main>
+
+      <footer
+        class="flex items-center border-t bg-colorBackground-light dark:bg-colorBackground-dark border-t-colorOutline-light dark:border-t-colorOutline-dark"
+      >
+        <slot name="footer"></slot>
+      </footer>
+    </div>
   </div>
 </template>
 

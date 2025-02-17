@@ -38,12 +38,7 @@ const coureses = ref([
             </div>
           </div>
           <ul class="w-full flex items-center space-x-2">
-            <li
-              v-for="course in coureses"
-              class="rounded text-xs md:text-sm px-2 py-1 cursor-pointer transition-colors duration-300 hover:bg-opacity-50 min-w-12 min-h-6 border border-colorOutline-light dark:border-colorOutline-dark bg-colorSurface-light dark:bg-colorSurface-dark"
-            >
-              {{ course.name }}
-            </li>
+            <Chip v-for="course in coureses" :label="course.name" />
           </ul>
         </div>
       </div>

@@ -1,5 +1,9 @@
 <template>
   <Scafford>
+    <template #sidebar>
+      <Drawer />
+    </template>
+
     <template #topbar>
       <TopAppBar />
     </template>

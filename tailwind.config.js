@@ -13,24 +13,24 @@ module.exports = {
     extend: {
       colors: {
         colorPrimary: {
-          light: "#fafafa", // Surface in light mode
-          dark: "#1f1f1f", // Surface in dark mode
+          light: "#18181b", // Surface in light mode
+          dark: "#fafafa", // Surface in dark mode
         },
         colorOnPrimary: {
-          light: "#333", // Text color on light background (match dark mode surface)
-          dark: "#B4B4B4", // Text color on dark background
+          light: "#fafafa", // Text color on light background (match dark mode surface)
+          dark: "#18181b", // Text color on dark background
         },
         colorBackground: {
-          light: "#fafafa", // Surface in light mode
-          dark: "#1f1f1f", // Surface in dark mode
+          light: "#ffffff", // Surface in light mode
+          dark: "#09090b", // Surface in dark mode
         },
         colorOnBackground: {
-          light: "#333", // Text color on light background (match dark mode surface)
-          dark: "#B4B4B4", // Text color on dark background
+          light: "#09090b", // Text color on light background (match dark mode surface)
+          dark: "#878790", // Text color on dark background
         },
         colorSurface: {
-          light: "#ffffff", // A pure white for light surface
-          dark: "#333", // Background in dark mode
+          light: "#f4f4f5", // A pure white for light surface
+          dark: "#27272a", // Background in dark mode
         },
         colorOnSurface: {
           light: "#000000", //  Text color on light surface
