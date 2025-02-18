@@ -7,7 +7,7 @@ const coureses = ref([
 </script>
 <template>
   <div
-    class="flex flex-col-reverse md:flex-row md:h-full w-full max-h-[1080px]"
+    class="flex flex-col-reverse md:flex-row md:h-full w-full md:max-h-[1080px]"
   >
     <!--Left hero text-->
     <div

@@ -17,7 +17,8 @@ const props = defineProps({
 
 <template>
   <li
-    class="w-full inline-flex transition-all duration-300 state cursor-pointer items-center gap-2 whitespace-nowrap text-base min-h-9 rounded-md justify-start px-4 py-2"
+    class="flex-grow-0 inline-flex transition-all duration-300 state cursor-pointer items-center gap-3 whitespace-nowrap text-base min-h-9 rounded-md justify-start px-4 py-2"
+    :class="{ isSelected: props.isSelected }"
   >
     <Icon :name="props.icon" />
     {{ props.title }}

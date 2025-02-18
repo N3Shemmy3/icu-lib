@@ -1,17 +1,16 @@
 <template>
   <!-- TopBar Content Wrapper-->
-  <div class="w-full flex items-center px-2 max-w-7xl justify-between">
+  <div class="w-full flex items-center h-14 px-2 max-w-7xl justify-between">
     <div id="start" class="flex items-center space-x-2">
-      <button
-        class="md:hidden size-12 flex rounded-full transition-all duration-300 hover:opacity-50"
-      >
-        <Icon name="ic:outline-menu" size="24" class="m-auto" />
-      </button>
+      <IconButton label="Menu" icon="lucide:panel-left-open" />
       <h4 class="text-xl">Library</h4>
     </div>
 
+    <div id="center" class="hidden md:flex items-center space-x-2">
+      <Input placeholder="Search" />
+    </div>
     <nav id="end" class="flex items-center space-x-2">
-      <IconButton v-for="n in 4" label="test" icon="lucide:settings-2" />
+      <IconButton v-for="n in 2" label="test" icon="lucide:settings-2" />
       <NuxtLink
         to="/profile"
         class="duration-300 transition-opacity hover:opacity-50"

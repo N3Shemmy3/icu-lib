@@ -3,22 +3,28 @@ import { ref, onMounted, onUnmounted } from "vue";
 </script>
 
 <template>
-  <div ref="content" class="w-full h-dvh select-none flex">
+  <div ref="root" class="w-full h-dvh overflow-hidden select-none flex">
     <div
-      class="fixed w-64 border-e border-e-colorOutline-light dark:border-e-colorOutline-dark h-full flex"
+      class="fixed z-50 hidden start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-30"
     >
-      <slot name="sidebar"></slot>
+      <div
+        class="fixed h-full z-[80] w-64 bg-colorBackground-light dark:bg-colorBackground-dark border-e border-e-colorOutline-light dark:border-e-colorOutline-dark"
+      >
+        <slot name="sidebar"> </slot>
+      </div>
     </div>
 
-    <div class="fixed left-[16rem] h-full flex flex-grow-0 flex-col">
+    <div
+      class="md:fixed md:left-[16rem] overflow-y-auto h-full w-full flex md:flex-grow-0 flex-col"
+    >
       <!-- TopBar Wrpper-->
       <header
-        class="z-50 flex w-full h-14 items-center justify-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
+        class="fixed md:relative start-0 top-0 end-0 z-40 flex w-full h-14 items-center justify-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
       >
         <slot name="topbar"></slot>
       </header>
 
-      <main class="w-full h-full max-w-6xl mx-auto overflow-y-auto *:pt-14">
+      <main class="w-full h-full max-w-6xl mx-auto flex flex-col *:pt-14">
         <slot></slot>
       </main>
 
