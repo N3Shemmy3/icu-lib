@@ -5,11 +5,9 @@ const coureses = ref([
   { name: "Economics", code: "ECO101" },
 ]);
 </script>
+
 <template>
-  <div
-    class="flex flex-col-reverse md:flex-row md:h-full w-full md:max-h-[1080px]"
-  >
-    <!--Left hero text-->
+  <div class="flex flex-col-reverse md:flex-row md:h-full md:max-h-[1080px]">
     <div
       id="left"
       class="md:w-full select-text flex flex-col items-center justify-center"

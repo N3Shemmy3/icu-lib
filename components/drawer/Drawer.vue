@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const items = ref([
   { title: "Home", icon: "lucide:home" },
   { title: "Notices", icon: "lucide:bell" },
@@ -6,6 +6,10 @@ const items = ref([
   { title: "Donate", icon: "lucide:dollar-sign" },
   { title: "About", icon: "lucide:info" },
 ]);
+const emit = defineEmits(["onItemClicked"]);
+function onItemCLick(item: any) {
+  emit("onItemClicked", item);
+}
 </script>
 
 <template>
@@ -23,6 +27,7 @@ const items = ref([
       :icon="item.icon"
       :title="item.title"
       class="mx-2"
+      @click="onItemCLick(item)"
     />
 
     <DrawerHeader class="mt-auto m-2" />

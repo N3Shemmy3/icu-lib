@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   imports: {
     autoImport: true,
   },
+  ssr: false,
   devtools: { enabled: true },
   modules: [
     "@nuxt/icon",

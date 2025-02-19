@@ -1,16 +1,33 @@
+<script setup lang="ts">
+const isDrawerOpen = ref(true);
+
+const onItemClicked = (item: any) => {
+  console.log(item.name);
+};
+const onOverlayClicked = () => {
+  isDrawerOpen.value = false;
+  console.log("overlay clicked");
+};
+const onMenuClicked = () => {
+  isDrawerOpen.value = !isDrawerOpen.value;
+  console.log("menu clicked");
+};
+</script>
+
 <template>
-  <Scafford>
+  <Scafford :isDrawerOpen="isDrawerOpen" :onOverlayClicked="onOverlayClicked">
     <template #sidebar>
-      <Drawer />
+      <Drawer :onItemClicked="(item: any)=> onItemClicked(item)" />
     </template>
 
     <template #topbar>
-      <TopAppBar />
+      <TopAppBar :onMenuClicked="onMenuClicked" />
     </template>
 
-    <template>
+    <template #default>
       <NuxtPage />
     </template>
+
     <template #footer>
       <Footer />
     </template>

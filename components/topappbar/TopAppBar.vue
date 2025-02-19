@@ -1,9 +1,17 @@
+<script setup lang="ts">
+const emit = defineEmits(["onMenuClicked"]);
+</script>
 <template>
   <!-- TopBar Content Wrapper-->
   <div class="w-full flex items-center h-14 px-2 max-w-7xl justify-between">
     <div id="start" class="flex items-center space-x-2">
-      <IconButton label="Menu" icon="lucide:panel-left-open" />
-      <h4 class="text-xl">Library</h4>
+      <IconButton
+        label="Menu"
+        icon="lucide:panel-left-open"
+        class="md:hidden"
+        @click="emit('onMenuClicked')"
+      />
+      <h4 class="text-xl md:hidden">Library</h4>
     </div>
 
     <div id="center" class="hidden md:flex items-center space-x-2">

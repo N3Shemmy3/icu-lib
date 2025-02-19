@@ -1,21 +1,50 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+const props = defineProps({
+  isDrawerOpen: {
+    type: Boolean,
+    required: true,
+  },
+});
+const emit = defineEmits(["onOverlayClicked"]);
+const overlay = ref<HTMLDivElement>();
+const drawer = ref<HTMLDivElement>();
+
+function onOverlayClicked(e: MouseEvent) {
+  if (e.target == overlay.value) emit("onOverlayClicked");
+}
 </script>
 
 <template>
   <div ref="root" class="w-full h-dvh overflow-hidden select-none flex">
-    <div
-      class="fixed z-50 hidden start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-30"
-    >
+    <!--Mobile Sidebar-->
+    <Transition name="slide-fade" :duration="300">
       <div
-        class="fixed h-full z-[80] w-64 bg-colorBackground-light dark:bg-colorBackground-dark border-e border-e-colorOutline-light dark:border-e-colorOutline-dark"
+        v-show="props.isDrawerOpen"
+        ref="overlay"
+        @click="onOverlayClicked($event)"
+        class="fixed z-50 md:hidden outer start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-80"
       >
-        <slot name="sidebar"> </slot>
+        <div
+          ref="drawer"
+          class="fixed inner h-full z-[80] w-64 bg-colorBackground-light dark:bg-colorBackground-dark border-e border-e-colorOutline-light dark:border-e-colorOutline-dark"
+        >
+          <slot name="sidebar"> </slot>
+        </div>
       </div>
+    </Transition>
+
+    <!--Destop Sidebar-->
+    <div
+      ref="drawer"
+      class="fixed inner hidden md:flex h-full z-[80] w-64 bg-colorBackground-light dark:bg-colorBackground-dark border-e border-e-colorOutline-light dark:border-e-colorOutline-dark"
+    >
+      <slot name="sidebar"> </slot>
     </div>
 
+    <!--Main Content-->
     <div
-      class="md:fixed md:left-[16rem] overflow-y-auto h-full w-full flex md:flex-grow-0 flex-col"
+      class="md:fixed md:left-[16rem] right-0 h-full flex flex-col flex-grow-0"
     >
       <!-- TopBar Wrpper-->
       <header
@@ -24,7 +53,7 @@ import { ref, onMounted, onUnmounted } from "vue";
         <slot name="topbar"></slot>
       </header>
 
-      <main class="w-full h-full max-w-6xl mx-auto flex flex-col *:pt-14">
+      <main class="w-full h-full max-w-6xl mx-auto flex flex-col">
         <slot></slot>
       </main>
 
@@ -55,5 +84,17 @@ h6 {
 }
 p {
   @apply text-colorOnBackground-light dark:text-colorOnBackground-dark;
+}
+.slide-fade-enter-active .inner {
+  transition-delay: 0.1s;
+  transition: all 0.3s;
+}
+.slide-fade-leave-active .inner {
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter-from .inner,
+.slide-fade-leave-to .inner {
+  transform: translatex(100%);
+  opacity: 0;
 }
 </style>
