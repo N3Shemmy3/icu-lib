@@ -1,8 +1,10 @@
 <script setup lang="ts">
+const router = useRouter();
 const isDrawerOpen = ref(false);
 
 const onItemClicked = (item: any) => {
   console.log("item clicked");
+  router.go(item.page);
 };
 const onOverlayClicked = () => {
   isDrawerOpen.value = false;
