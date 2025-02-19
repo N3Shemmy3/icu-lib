@@ -26,7 +26,7 @@ const props = defineProps({
 </template>
 <style scoped>
 .state:hover {
-  @apply bg-colorSurface-light dark:bg-colorSurface-dark text-colorOnSurface-light dark:text-colorOnSurface-dark;
+  @apply bg-opacity-50 bg-colorPrimary-light dark:bg-colorPrimary-dark text-colorOnPrimary-light dark:text-colorOnPrimary-dark;
 }
 .isSelected {
   @apply bg-colorPrimary-light dark:bg-colorPrimary-dark text-colorOnPrimary-light dark:text-colorOnPrimary-dark hover:bg-opacity-80;

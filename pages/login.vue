@@ -19,8 +19,15 @@ const value = ref("");
             For a better experience, create an account to access all features
           </p>
         </div>
-        <form action="" class="flex flex-col space-y-4">
-          <Input placeholder="Student number" :inputmode="numeric" />
+        <form action="" class="flex flex-col space-y-4 w-80">
+          <Input placeholder="Student number" inputmode="numeric" />
+          <Input placeholder="Password" inputmode="numeric" />
+          <Input placeholder="Confirm Password" inputmode="numeric" />
+          <button
+            class="inline-flex gap-2 text-base text-nowrap justify-center duration-300 transition-all hover:bg-opacity-70 bg-colorPrimary-light dark:bg-colorPrimary-dark text-colorOnPrimary-light dark:text-colorOnPrimary-dark rounded-md px-4 py-2"
+          >
+            Sign up
+          </button>
         </form>
       </div>
     </div>
