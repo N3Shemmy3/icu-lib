@@ -8,7 +8,19 @@ const props = defineProps({
   },
   inputmode: {
     type: String,
-    default: "Enter Value", // Default placeholder
+    default: "text", // Default input mode
+    validator: (value) => {
+      return [
+        "text",
+        "email",
+        "search",
+        "tel",
+        "url",
+        "numeric",
+        "none",
+        "decimal",
+      ].includes(value);
+    },
   },
   modelValue: String,
 });
@@ -53,8 +65,8 @@ watch(
 <template>
   <input
     type="text"
-    :placeholder="placeholder"
-    inputmode="numeric"
+    :placeholder="props.placeholder"
+    :inputmode="props.inputmode"
     @input="formatInput"
     class="md:w-80 bg-transparent px-4 py-2 transition-all duration-300 rounded border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
   />

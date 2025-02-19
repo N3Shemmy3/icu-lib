@@ -53,12 +53,12 @@ function onOverlayClicked(e: MouseEvent) {
         <slot name="topbar"></slot>
       </header>
 
-      <main class="w-full h-full max-w-6xl mx-auto flex flex-col *:pt-14">
+      <main class="w-full flex-grow-0 max-w-6xl mx-auto flex flex-col *:pt-14">
         <slot></slot>
       </main>
 
       <footer
-        class="flex items-center border-t bg-colorBackground-light dark:bg-colorBackground-dark border-t-colorOutline-light dark:border-t-colorOutline-dark"
+        class="flex items-center mt-auto border-t bg-colorBackground-light dark:bg-colorBackground-dark border-t-colorOutline-light dark:border-t-colorOutline-dark"
       >
         <slot name="footer"></slot>
       </footer>
