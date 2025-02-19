@@ -16,7 +16,7 @@ function onOverlayClicked(e: MouseEvent) {
 </script>
 
 <template>
-  <div ref="root" class="w-full h-dvh overflow-hidden select-none flex">
+  <div ref="root" class="w-full h-dvh overflow-x-hidden select-none flex">
     <!--Mobile Sidebar-->
     <Transition name="slide-fade" :duration="300">
       <div

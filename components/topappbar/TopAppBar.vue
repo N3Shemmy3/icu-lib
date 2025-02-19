@@ -18,6 +18,7 @@ const emit = defineEmits(["onMenuClicked"]);
       <Input placeholder="Search" />
     </div>
     <nav id="end" class="flex items-center space-x-2">
+      <IconButton label="Search" icon="lucide:search" />
       <IconButton v-for="n in 2" label="test" icon="lucide:settings-2" />
       <NuxtLink
         to="/profile"
