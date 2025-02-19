@@ -1,10 +1,10 @@
 <script setup lang="ts">
 const items = ref([
-  { title: "Home", icon: "lucide:home" },
-  { title: "Notices", icon: "lucide:bell" },
-  { title: "Courses", icon: "lucide:book" },
-  { title: "Donate", icon: "lucide:dollar-sign" },
-  { title: "About", icon: "lucide:info" },
+  { title: "Home", icon: "lucide:home", page: "/" },
+  { title: "Notices", icon: "lucide:bell", page: "/notices" },
+  { title: "Courses", icon: "lucide:book", page: "/courses" },
+  { title: "Donate", icon: "lucide:dollar-sign", page: "/donate" },
+  { title: "About", icon: "lucide:info", page: "/about" },
 ]);
 const emit = defineEmits(["onItemClicked"]);
 function onItemCLick(item: any) {
