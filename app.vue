@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const isDrawerOpen = ref(true);
+const isDrawerOpen = ref(false);
 
 const onItemClicked = (item: any) => {
-  console.log(item.name);
+  console.log("item clicked");
 };
 const onOverlayClicked = () => {
   isDrawerOpen.value = false;
@@ -15,13 +15,13 @@ const onMenuClicked = () => {
 </script>
 
 <template>
-  <Scafford :isDrawerOpen="isDrawerOpen" :onOverlayClicked="onOverlayClicked">
+  <Scafford :isDrawerOpen="isDrawerOpen" @onOverlayClicked="onOverlayClicked">
     <template #sidebar>
-      <Drawer :onItemClicked="(item: any)=> onItemClicked(item)" />
+      <Drawer @onItemClicked="(item: any)=> onItemClicked(item)" />
     </template>
 
     <template #topbar>
-      <TopAppBar :onMenuClicked="onMenuClicked" />
+      <TopAppBar @onMenuClicked="onMenuClicked" />
     </template>
 
     <template #default>

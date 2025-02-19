@@ -23,7 +23,7 @@ function onOverlayClicked(e: MouseEvent) {
         v-show="props.isDrawerOpen"
         ref="overlay"
         @click="onOverlayClicked($event)"
-        class="fixed z-50 md:hidden outer start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-80"
+        class="fixed z-50 md:hidden outer start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-70"
       >
         <div
           ref="drawer"
@@ -94,7 +94,7 @@ p {
 }
 .slide-fade-enter-from .inner,
 .slide-fade-leave-to .inner {
-  transform: translatex(100%);
+  transform: translatex(-100%);
   opacity: 0;
 }
 </style>
