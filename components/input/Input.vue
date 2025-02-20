@@ -88,17 +88,28 @@ watch(
 <template>
   <div class="flex flex-col space-y-1">
     <div class="relative">
-      <input
-        :type="
-          props.inputmode === 'password' && !isPasswordVisible
-            ? 'password'
-            : 'text'
-        "
-        :placeholder="props.placeholder"
-        :inputmode="props.inputmode"
-        @input="formatInput"
-        class="w-full max-w-full bg-transparent px-4 pe-10 py-2 transition-all duration-300 rounded overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
-      />
+      <label class="block relative">
+        <input
+          :type="
+            props.inputmode === 'password' && !isPasswordVisible
+              ? 'password'
+              : 'text'
+          "
+          placeholder=""
+          :inputmode="props.inputmode"
+          @input="formatInput"
+          class="w-full max-w-full bg-transparent px-4 pe-10 py-2 transition-all duration-300 rounded overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
+        />
+        <span
+          class="absolute left-4 top-2 transition-all duration-300 bg-colorBackground-light dark:bg-colorBackground-dark rounded text-gray-500 pointer-events-none"
+          :class="{
+            'text-xs -top-2.5': props.modelValue || isPasswordVisible,
+            'text-base': !props.modelValue && !isPasswordVisible,
+          }"
+        >
+          {{ props.placeholder }}
+        </span>
+      </label>
       <button
         v-if="props.inputmode === 'password'"
         type="button"
@@ -114,3 +125,12 @@ watch(
     </p>
   </div>
 </template>
+
+<style scoped>
+input:focus + span,
+input:not(:placeholder-shown) + span {
+  top: -0.75rem;
+  font-size: 0.75rem;
+  color: var(--colorPrimary-light);
+}
+</style>
