@@ -15,7 +15,7 @@ const emit = defineEmits(["onMenuClicked"]);
     </div>
 
     <div id="center" class="hidden md:flex items-center space-x-2">
-      <Input placeholder="Search" />
+      <Input placeholder="Search" class="md:w-full" />
     </div>
     <nav id="end" class="flex items-center space-x-2">
       <IconButton label="Search" icon="lucide:search" class="md:hidden" />

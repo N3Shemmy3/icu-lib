@@ -43,6 +43,7 @@ const formatInput = (event) => {
 };
 
 const validateInput = (value) => {
+  if (!props.inputmode.includes("numeric")) return; // Skip validation for non numeric input
   if (value === "" || /^[0-9]+$/.test(value)) {
     // Check if empty or only numbers
     errorMessage.value = null;
@@ -51,24 +52,30 @@ const validateInput = (value) => {
   }
 };
 
-watch(
-  () => props.modelValue,
-  (newValue) => {
-    const formattedValue = newValue?.replace(/[^0-9]/g, "");
-    if (formattedValue !== newValue) {
-      emit("update:modelValue", formattedValue);
+if (props.inputmode.includes("numeric")) {
+  watch(
+    () => props.modelValue,
+    (newValue) => {
+      const formattedValue = newValue?.replace(/[^0-9]/g, "");
+      if (formattedValue !== newValue) {
+        emit("update:modelValue", formattedValue);
+      }
+      validateInput(formattedValue);
     }
-    validateInput(formattedValue);
-  }
-);
+  );
+}
 </script>
 <template>
-  <input
-    type="text"
-    :placeholder="props.placeholder"
-    :inputmode="props.inputmode"
-    @input="formatInput"
-    class="md:w-80 bg-transparent px-4 py-2 transition-all duration-300 rounded border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
-  />
-  <p v-if="errorMessage" class="text-red-500">{{ errorMessage }}</p>
+  <div class="flex flex-col space-y-1">
+    <input
+      type="text"
+      :placeholder="props.placeholder"
+      :inputmode="props.inputmode"
+      @input="formatInput"
+      class="w-full max-w-full bg-transparent px-4 py-2 transition-all duration-300 rounded border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
+    />
+    <p v-if="errorMessage" class="ms-auto text-sm justify-end text-red-500">
+      {{ errorMessage }}
+    </p>
+  </div>
 </template>
