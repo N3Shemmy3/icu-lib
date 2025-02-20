@@ -31,10 +31,15 @@ const errorMessage = ref();
 
 const formatInput = (event) => {
   const inputValue = event.target.value;
-  const formattedValue = inputValue.replace(/[^0-9]/g, ""); // Only allow numbers
+  let formattedValue = inputValue;
+
+  if (props.inputmode === "numeric") {
+    formattedValue = inputValue.replace(/[^0-9]/g, ""); // Only allow numbers
+  } else if (props.inputmode === "decimal") {
+    formattedValue = inputValue.replace(/[^0-9.]/g, ""); // Only allow numbers and decimal point
+  }
 
   if (formattedValue !== inputValue) {
-    // Check if formatting changed anything
     event.target.value = formattedValue; // Update the input field
   }
 
@@ -43,28 +48,37 @@ const formatInput = (event) => {
 };
 
 const validateInput = (value) => {
-  if (!props.inputmode.includes("numeric")) return; // Skip validation for non numeric input
-  if (value === "" || /^[0-9]+$/.test(value)) {
-    // Check if empty or only numbers
-    errorMessage.value = null;
-  } else {
+  if (props.inputmode === "numeric" && !/^[0-9]*$/.test(value)) {
     errorMessage.value = "Please enter only numeric values.";
+  } else if (
+    props.inputmode === "decimal" &&
+    !/^[0-9]*\.?[0-9]*$/.test(value)
+  ) {
+    errorMessage.value = "Please enter a valid decimal number.";
+  } else {
+    errorMessage.value = null;
   }
 };
 
-if (props.inputmode.includes("numeric")) {
-  watch(
-    () => props.modelValue,
-    (newValue) => {
-      const formattedValue = newValue?.replace(/[^0-9]/g, "");
-      if (formattedValue !== newValue) {
-        emit("update:modelValue", formattedValue);
-      }
-      validateInput(formattedValue);
+watch(
+  () => props.modelValue,
+  (newValue) => {
+    let formattedValue = newValue;
+
+    if (props.inputmode === "numeric") {
+      formattedValue = newValue?.replace(/[^0-9]/g, "");
+    } else if (props.inputmode === "decimal") {
+      formattedValue = newValue?.replace(/[^0-9.]/g, "");
     }
-  );
-}
+
+    if (formattedValue !== newValue) {
+      emit("update:modelValue", formattedValue);
+    }
+    validateInput(formattedValue);
+  }
+);
 </script>
+
 <template>
   <div class="flex flex-col space-y-1">
     <input
