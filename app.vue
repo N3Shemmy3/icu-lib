@@ -3,7 +3,7 @@ const router = useRouter();
 const isDrawerOpen = ref(false);
 
 const onItemClicked = (item: any) => {
-  router.go(item.page);
+  router.push(item.page);
 };
 const onOverlayClicked = () => {
   isDrawerOpen.value = false;
@@ -16,7 +16,7 @@ const onMenuClicked = () => {
 <template>
   <Scafford :isDrawerOpen="isDrawerOpen" @onOverlayClicked="onOverlayClicked">
     <template #sidebar>
-      <Drawer @onItemClicked="(item: any)=> onItemClicked(item)" />
+      <Drawer @onItemClicked="onItemClicked" />
     </template>
 
     <template #topbar>

@@ -30,6 +30,6 @@ function onItemCLick(item: any) {
       @click="onItemCLick(item)"
     />
 
-    <DrawerHeader class="mt-auto m-2" />
+    <DrawerHeader class="mt-auto m-2" @click="$router.push('/profile')" />
   </ul>
 </template>

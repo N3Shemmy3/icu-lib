@@ -1,4 +1,17 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+
+const isSignedIn = ref(false);
+const route = useRoute();
+
+watch(
+  () => route.path,
+  (newPath) => {
+    isSignedIn.value = !newPath.includes("auth");
+  },
+  { immediate: true }
+);
 const emit = defineEmits(["onMenuClicked"]);
 </script>
 <template>
@@ -17,17 +30,19 @@ const emit = defineEmits(["onMenuClicked"]);
     <div id="center" class="hidden md:flex items-center space-x-2">
       <Input placeholder="Search" class="md:w-full" />
     </div>
-    <nav id="end" class="flex items-center space-x-2">
-      <IconButton label="Search" icon="lucide:search" class="md:hidden" />
-      <IconButton label="test" icon="lucide:settings-2" />
-      <NuxtLink
-        to="/profile"
-        class="duration-300 transition-opacity hover:opacity-50"
-      >
-        <img
-          src="/public/avatar.jpg"
-          class="size-8 rounded-full object-cover overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark"
-      /></NuxtLink>
-    </nav>
+    <div>
+      <nav v-if="isSignedIn" id="end" class="flex items-center space-x-2">
+        <IconButton label="Search" icon="lucide:search" class="md:hidden" />
+        <IconButton label="test" icon="lucide:settings-2" />
+        <NuxtLink
+          to="/profile"
+          class="duration-300 transition-opacity hover:opacity-50"
+        >
+          <img
+            src="/public/avatar.jpg"
+            class="size-8 rounded-full object-cover overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark"
+        /></NuxtLink>
+      </nav>
+    </div>
   </div>
 </template>
