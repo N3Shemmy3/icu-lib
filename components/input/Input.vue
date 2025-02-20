@@ -19,6 +19,7 @@ const props = defineProps({
         "numeric",
         "none",
         "decimal",
+        "password",
       ].includes(value);
     },
   },
@@ -28,6 +29,7 @@ const props = defineProps({
 const emit = defineEmits(["update:modelValue"]);
 
 const errorMessage = ref();
+const isPasswordVisible = ref(false);
 
 const formatInput = (event) => {
   const inputValue = event.target.value;
@@ -60,6 +62,10 @@ const validateInput = (value) => {
   }
 };
 
+const togglePasswordVisibility = () => {
+  isPasswordVisible.value = !isPasswordVisible.value;
+};
+
 watch(
   () => props.modelValue,
   (newValue) => {
@@ -81,13 +87,28 @@ watch(
 
 <template>
   <div class="flex flex-col space-y-1">
-    <input
-      type="text"
-      :placeholder="props.placeholder"
-      :inputmode="props.inputmode"
-      @input="formatInput"
-      class="w-full max-w-full bg-transparent px-4 py-2 transition-all duration-300 rounded border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
-    />
+    <div class="relative">
+      <input
+        :type="
+          props.inputmode === 'password' && !isPasswordVisible
+            ? 'password'
+            : 'text'
+        "
+        :placeholder="props.placeholder"
+        :inputmode="props.inputmode"
+        @input="formatInput"
+        class="w-full max-w-full bg-transparent px-4 pe-10 py-2 transition-all duration-300 rounded overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark focus:border-colorPrimary-light focus:dark:border-colorPrimary-dark outline-none"
+      />
+      <button
+        v-if="props.inputmode === 'password'"
+        type="button"
+        @click="togglePasswordVisibility"
+        class="absolute inset-y-0 right-0 px-3 flex items-center"
+      >
+        <Icon v-if="isPasswordVisible" name="lucide:eye" />
+        <Icon v-else name="lucide:eye-off" />
+      </button>
+    </div>
     <p v-if="errorMessage" class="ms-auto text-sm justify-end text-red-500">
       {{ errorMessage }}
     </p>
