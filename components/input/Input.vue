@@ -49,12 +49,12 @@ const formatInput = (event) => {
 
 const validateInput = (value) => {
   if (props.inputmode === "numeric" && !/^[0-9]*$/.test(value)) {
-    errorMessage.value = "Please enter only numeric values.";
+    errorMessage.value = "Only numeric values.";
   } else if (
     props.inputmode === "decimal" &&
     !/^[0-9]*\.?[0-9]*$/.test(value)
   ) {
-    errorMessage.value = "Please enter a valid decimal number.";
+    errorMessage.value = "Invalid decimal number.";
   } else {
     errorMessage.value = null;
   }
