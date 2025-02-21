@@ -21,7 +21,7 @@ import avatar from "@/public/avatar.jpg";
             <IconButton icon="lucide:camera" class="" theme="filled" />
           </div>
         </div>
-        <div class="flex flex-col space-y-4 lg:w-80">
+        <div class="flex flex-col space-y-4">
           <Input placeholder="First name" inputmode="text" />
           <Input placeholder="Last name" inputmode="text" />
           <Input placeholder="Program" inputmode="text" />
