@@ -3,6 +3,7 @@ const router = useRouter();
 const isDrawerOpen = ref(false);
 
 const onItemClicked = (item: any) => {
+  isDrawerOpen.value = false;
   router.push(item.page);
 };
 const onOverlayClicked = () => {
