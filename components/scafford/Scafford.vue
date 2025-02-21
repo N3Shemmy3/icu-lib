@@ -44,7 +44,7 @@ function onOverlayClicked(e: MouseEvent) {
 
     <!--Main Content-->
     <div
-      class="md:fixed md:left-[16rem] md:overflow-y-auto right-0 h-full flex flex-col flex-grow-0"
+      class="md:fixed md:left-[16rem] md:overflow-y-auto right-0 h-full w-full flex flex-col flex-grow-0"
     >
       <!-- TopBar Wrpper-->
       <header
