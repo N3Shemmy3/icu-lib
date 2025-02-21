@@ -1,18 +1,3 @@
-<template>
-  <button
-    :class="[
-      'inline-flex items-center w-full gap-2 text-base text-nowrap justify-center duration-300 transition-all hover:bg-opacity-70 rounded-md px-2 py-2',
-      buttonStyleClass,
-      textColorClass,
-    ]"
-  >
-    <Icon v-if="icon" :name="icon" />
-    <span>
-      {{ text }}
-    </span>
-  </button>
-</template>
-
 <script setup>
 import { computed } from "vue";
 

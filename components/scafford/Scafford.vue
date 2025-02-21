@@ -23,7 +23,7 @@ function onOverlayClicked(e: MouseEvent) {
         v-show="props.isDrawerOpen"
         ref="overlay"
         @click="onOverlayClicked($event)"
-        class="fixed z-50 md:hidden outer start-0 top-0 end-0 bottom-0 h-full flex-col bg-black bg-opacity-70"
+        class="fixed z-50 md:hidden outer left-0 top-0 right-0 bottom-0 h-full flex-col bg-black bg-opacity-70"
       >
         <div
           ref="drawer"
@@ -44,11 +44,11 @@ function onOverlayClicked(e: MouseEvent) {
 
     <!--Main Content-->
     <div
-      class="md:fixed md:left-[16rem] right-0 h-full w-full flex flex-col flex-grow-0"
+      class="md:fixed md:left-[16rem] md:overflow-y-auto right-0 h-full flex flex-col flex-grow-0"
     >
       <!-- TopBar Wrpper-->
       <header
-        class="fixed md:relative start-0 top-0 end-0 z-40 flex w-full h-14 items-center justify-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
+        class="fixed md:left-[16rem] left-0 top-0 right-0 z-40 flex h-14 items-center justify-center border-b bg-colorBackground-light dark:bg-colorBackground-dark border-b-colorOutline-light dark:border-b-colorOutline-dark"
       >
         <slot name="topbar"></slot>
       </header>

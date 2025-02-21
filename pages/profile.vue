@@ -3,26 +3,25 @@ import avatar from "@/public/avatar.jpg";
 </script>
 
 <template>
-  <div class="flex flex-col md:flex-row md:h-full w-full md:max-h-fit">
+  <div class="flex flex-col lg:flex-row w-full lg:max-h-fit">
     <!--Left hero text-->
     <div id="left" class="w-full flex flex-col items-center justify-center">
       <div
-        class="w-full flex flex-col px-4 py-2 mt-4 md:mt-0 space-y-8 md:space-y-12"
+        class="w-full flex flex-col px-4 py-2 mt-4 lg:mt-0 space-y-8 lg:space-y-12"
       >
         <div class="mb-8">
-          <h3 class="text-3xl md:text-5xl">Profile Settings</h3>
+          <h3 class="text-3xl lg:text-5xl">Profile Settings</h3>
         </div>
-        <div class="flex justify-between">
-          <Img
+        <div class="relative flex justify-between">
+          <img
             :src="avatar"
-            class="size-44 rounded-full object-cover overflow-hidden border border-colorOutline-light dark:border-colorOutline-dark"
+            class="size-44 rounded-full object-cover overflow-hidden border-2 border-colorPrimary-light dark:border-colorPrimary-dark"
           />
-          <div class="my-auto flex flex-col space-y-4">
-            <Button icon="lucide:pencil" text="Edit" theme="filled" />
-            <Button icon="lucide:trash-2" text="Remove" theme="outlined" />
+          <div class="absolute bottom-0 start-2">
+            <IconButton icon="lucide:camera" class="" theme="filled" />
           </div>
         </div>
-        <div class="flex flex-col space-y-4 md:w-80">
+        <div class="flex flex-col space-y-4 lg:w-80">
           <Input placeholder="First name" inputmode="text" />
           <Input placeholder="Last name" inputmode="text" />
           <Input placeholder="Program" inputmode="text" />
@@ -37,7 +36,7 @@ import avatar from "@/public/avatar.jpg";
     <!--Right hero text-->
     <div
       id="right"
-      class="md:w-full select-text flex flex-col items-center justify-center"
+      class="lg:w-full select-text flex flex-col items-center justify-center"
     ></div>
   </div>
 </template>
