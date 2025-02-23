@@ -24,7 +24,7 @@ const styles = computed(() => {
 <template>
   <button
     :class="[
-      'inline-flex items-center p-2 justify-center whitespace-nowrap shrink-0 rounded-md duration-300 transition-all ',
+      'inline-flex items-center size-12 p-2 justify-center whitespace-nowrap shrink-0 rounded-md duration-300 transition-all ',
       styles,
     ]"
     @click=""

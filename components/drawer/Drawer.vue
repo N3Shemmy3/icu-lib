@@ -13,9 +13,9 @@ function onItemCLick(item: any) {
 </script>
 
 <template>
-  <ul class="w-full h-full flex-grow group flex flex-col gap-4">
+  <ul class="w-full h-full overflow-y-auto flex-grow group flex flex-col gap-4">
     <div
-      class="w-full flex items-center h-14 px-4 gap-1 text-lg border-b border-b-colorOutline-light dark:border-b-colorOutline-dark"
+      class="w-full flex items-center min-h-14 h-14 px-4 gap-1 text-lg border-b border-b-colorOutline-light dark:border-b-colorOutline-dark"
     >
       <IconButton icon="lucide:notebook-text" label="Home" size="24" />
       <h4>Study Buddy</h4>

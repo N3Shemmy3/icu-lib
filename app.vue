@@ -33,3 +33,27 @@ const onMenuClicked = () => {
     </template>
   </Scafford>
 </template>
+<style>
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+
+/* Sets the width and height of the scrollbar */
+::-webkit-scrollbar {
+  width: 4px; /* Width of vertical scrollbar */
+  height: 10px; /* Height of horizontal scrollbar */
+}
+
+/* Styles the scrollbar track (the background area behind the thumb) */
+::-webkit-scrollbar-track {
+  @apply bg-colorBackground-light dark:bg-colorBackground-dark;
+}
+
+/* Styles the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  @apply bg-opacity-30 bg-colorPrimary-light dark:bg-colorPrimary-dark rounded-full;
+}
+
+/* Changes the scrollbar thumb color when hovered */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-opacity-70;
+}
+</style>
