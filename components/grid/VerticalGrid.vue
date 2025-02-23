@@ -17,7 +17,7 @@
     <div class="p-4 grid gap-4 grid-responsive">
       <div
         v-for="n in 5"
-        class="w-full h-[120px] border rounded border-colorOutline-light dark:border-colorOutline-dark"
+        class="w-full aspect-square border rounded border-colorOutline-light dark:border-colorOutline-dark"
       ></div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center w-full px-4 py-2 max-w-7xl mx-auto justify-between"
+    class="flex items-center w-full px-4 py-2 max-w-6xl mx-auto justify-between"
   >
     <div class="flex items-center space-x-2">
       <Icon name="ic:outline-keyboard-command-key" size="24" />

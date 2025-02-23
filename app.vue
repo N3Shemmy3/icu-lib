@@ -38,6 +38,7 @@ const onMenuClicked = () => {
 
 /* Sets the width and height of the scrollbar */
 ::-webkit-scrollbar {
+  @apply transition-all duration-300;
   width: 4px; /* Width of vertical scrollbar */
   height: 10px; /* Height of horizontal scrollbar */
 }
@@ -49,7 +50,7 @@ const onMenuClicked = () => {
 
 /* Styles the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  @apply bg-opacity-30 bg-colorPrimary-light dark:bg-colorPrimary-dark rounded-full;
+  @apply bg-opacity-70 bg-colorPrimary-light dark:bg-colorPrimary-dark rounded-full;
 }
 
 /* Changes the scrollbar thumb color when hovered */

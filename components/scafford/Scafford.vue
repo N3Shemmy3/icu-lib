@@ -53,7 +53,9 @@ function onOverlayClicked(e: MouseEvent) {
         <slot name="topbar"></slot>
       </header>
 
-      <main class="w-full min-h-fit box-border mx-auto flex flex-col *:pt-14">
+      <main
+        class="w-full min-h-fit box-border mx-auto max-w-6xl flex flex-col *:pt-14"
+      >
         <slot></slot>
       </main>
 

@@ -16,7 +16,7 @@ const emit = defineEmits(["onMenuClicked"]);
 </script>
 <template>
   <!-- TopBar Content Wrapper-->
-  <div class="w-full flex items-center h-14 px-2 max-w-7xl justify-between">
+  <div class="w-full flex items-center h-14 px-2 max-w-6xl justify-between">
     <div id="start" class="flex items-center space-x-2">
       <IconButton
         label="Menu"
